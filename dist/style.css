@@ -1,0 +1,100 @@
+.container{
+    display: grid;
+    grid-gap: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    grid-template-areas: 
+    'h'
+    'r';
+}
+
+.header {
+    grid-template: h;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 'i b';
+}
+
+.results {
+    grid-template: r;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+    "c c"
+    "c c"
+    "c c";
+}
+
+input {
+    grid-template: 'i';
+}
+
+#srcCity {
+    grid-template: 'b';
+}
+
+.city {
+    grid-template: 'c';
+    display: grid;
+    grid-template-areas: 
+    'name'
+    'temp'
+    'cond'
+    'icon'
+    'btns';
+    justify-content: center;
+    align-content: center;
+    font-family: Helvetica;
+    font-size: 13px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 6px -1px rgba(0, 0, 0, 0.5), 0 4px 4px -1px rgba(0, 0, 0, 0.06);
+    /* border: 1px black solid; */
+    border-radius: 15px;
+    width: 120px;
+    height: 120px;
+    padding: 10px;
+}
+
+.cityName {
+    grid-area: 'name';
+}
+
+.temperature {
+    grid-area: 'temp';
+}
+
+.condition {
+    grid-area: 'cond';
+}
+
+img {
+    grid-area: 'icon';
+    width: 4em;
+    height: 4em;
+}
+
+#btns {
+    display: grid;
+    grid-area: 'btns';
+    grid-template-areas: 's d';
+    cursor: pointer;
+}
+
+#saveBtn {
+    grid-area: 's';
+    cursor: pointer;
+}
+
+#delBtn {
+    grid-area: 'd';
+    cursor: pointer;
+}
+
+.alert {
+    font-family: Helvetica;
+    color: red;
+    font-size: 10px;
+}

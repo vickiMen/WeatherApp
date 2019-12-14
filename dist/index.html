@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather App</title>
+    <script src="https://kit.fontawesome.com/a0797b260b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+</head>
+<body>
+
+    <div class=container>
+        <div class='header'>
+            <input id='cityInput' placeholder='Please enter a city name...'></input>
+            <button id='srcCity' onclick=handleSearch()>Search</button>
+        </div>
+        
+        <div class='results'></div>
+        
+    </div>
+
+    <script class='template' type="text/x-handlebars-template">
+        {{#each allCityData}}
+            <div class='city' data-id={{nameRaw}}>
+                <div class='cityName'>{{name}}</div>
+                <div class='temperature'>{{temperature}}</div>
+                <div class='condition'>{{condition}}</div>
+                <img src='http://openweathermap.org/img/wn/{{conditionPic}}@2x.png'>
+                <div id='btns'>
+                    <i id='saveBtn' class="fas fa-save"></i>
+                    <i id='dltBtn' class="fas fa-trash-alt"></i>
+                </div>
+            </div>
+        {{/each}}
+    </script>
+    
+    <script src="/handlebars/dist/handlebars.js"></script>
+    <script src="/jquery/dist/jquery.js"></script>
+    <script src="TempManager.js"></script>
+    <script src="Renderer.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>
