@@ -23,4 +23,12 @@ $('.results').on('click', '#dltBtn', function(){
     tempManager.removeCity(cityRaw)
 })
 
+
+$('.results').on('click', '#rfrsBtn', function(){
+    const cityName = $(this).parent().parent().find('.cityName').html()
+    tempManager.updateCity(cityName)
+    // renderer.deleteCity(cityRaw)
+})
+
+
 loadPage()

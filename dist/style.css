@@ -79,7 +79,7 @@ img {
 #btns {
     display: grid;
     grid-area: 'btns';
-    grid-template-areas: 's d';
+    grid-template-areas: 's d r';
     cursor: pointer;
 }
 
@@ -90,6 +90,11 @@ img {
 
 #delBtn {
     grid-area: 'd';
+    cursor: pointer;
+}
+
+#rfrsBtn{
+    grid-area: 'r';
     cursor: pointer;
 }
 

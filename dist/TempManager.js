@@ -41,15 +41,30 @@ class TempManager{
         })
     }
 
-    removeCity(cityName){
-        let index = this.cityData.indexOf(this.cityData.find( c => c == cityName))
+    removeCity(cityRaw){
+        let index = this.cityData.indexOf(this.cityData.find( c => c.nameRaw == cityRaw))
         this.cityData.splice(index,1)
         $.ajax({
-            url: `/city/${cityName}`,
+            url: `/city/${cityRaw}`,
             method: 'DELETE',
-            dataType: 'json',
-            success: function(request,response){
+            // dataType: 'json',
+            success: function(response){
                 console.log(response)
+            }
+        })
+    }
+
+    updateCity(cityName){
+        $.ajax({
+            url: `/city/${cityName}`,
+            method: 'PUT',
+            dataType: 'json',
+            success: (data) => {
+                    let index = this.cityData.findIndex( c => c.name == cityName )
+                    this.cityData[index].temperature = data.main.temp
+                    this.cityData[index].condition = data.weather[0].description
+                    this.cityData[index].conditionPic = data.weather[0].icon
+                    renderer.renderData(this.cityData)
             }
         })
     }
